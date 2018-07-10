@@ -1,0 +1,96 @@
+﻿body {
+    font-family: 'Microsoft YaHei';
+    font-size: 16px;
+    color: #3e3e3e;
+    font-weight: 500;
+    background-color:#eee;
+}
+.col-xs-12{
+    margin-left:0;
+    margin-right:0;
+    padding-left:0;
+    padding-right:0;
+    /*margin-bottom:10%;*/
+}
+
+.panel {
+    margin:0;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+input {
+    border: 0;
+    outline: none;
+}
+
+.img-rounded {
+    width: 20vw;
+}
+
+.paneltitle {
+    width: 30%;
+}
+
+.panelbody {
+    text-align: right;
+    width: 60%;
+    margin-right:15px;
+}
+
+    .panelbody input {
+        width: 100%;
+        font-size: 14px;
+    }
+
+.panel-body{
+    padding-left: 0;
+    padding-right: 0;
+}
+.edit{
+    position:relative;
+    overflow:hidden;
+}
+.edit:after {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url(../Images/bj.png) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    display: block;
+}
+.phone {
+    text-align: left;
+}
+
+    .phone > input {
+        width: 65%;
+    }
+
+    .phone > button {
+        width: 30%;
+        text-align: center;
+    }
+
+#tijiao {
+    height:40px;
+    line-height: 20px !important;
+    font-size: 16px;
+    line-height: 10vw;
+    width: 90%;
+    margin: 20px auto;
+    border-radius:10px;
+    outline: none;
+}
+.marginB{
+    margin-bottom:15px;
+}

@@ -1,0 +1,121 @@
+/* 
+* @Author: 晴
+* @Date:   2015-12-21 17:46:12
+* @Last Modified by:   晴
+* @Last Modified time: 2015-12-28 13:44:28
+*/
+body{
+	font-family: 'Microsoft YaHei';
+	background-color:#ececec;
+}
+.Mymessage{
+	overflow: hidden;
+	padding: 10px 10px 10px 15px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+.Mymessage .logo{
+	display: block;
+	width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.Mymessage .logo img{
+	width:100%;
+	height:100%;
+}
+.Mymessage-name{
+	padding:10px 0px 10px 10px;
+}
+.Mymessage-name p{
+	font-size: 18px;
+	margin:0;
+}
+.Mymessage-name .tel{
+	font-size: 14px;
+	color:#898989;
+}
+.andmi{
+	position: relative;
+}
+.samil{
+	/*display: block;*/
+	position: absolute;
+	top:30px;
+	right:-3%;
+	width:23px;
+	height:23px;
+	background: url(../Images/xing.png) no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+.andmi b{
+	display: block;
+	padding-top:55px;
+	color: #d4a300;
+	font-weight: normal;
+}
+/**/
+.Mymessage-list li{
+	/*margin-bottom:20px;*/
+	/*line-height: 28px;*/
+	color:#626262;
+	border-radius:0px !important;
+
+}
+.list-group-item .icon{
+	position: absolute;
+    top: 14px;
+    display: inline-block;
+    /*font-family: 'Glyphicons Halflings';*/
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    width:22px;
+    height:22px;
+    background-size: cover;
+	-webkit-background-size: cover;
+}
+.Mymessage-list p{
+	padding-left: 30px;
+    padding-top: 5px;
+    margin: 0 0 5px;
+}
+.Mymessage-icon1{
+	background: url(../Images/usertwo.png) no-repeat;
+
+}.Mymessage-icon2{
+	background: url(../Images/dingdan.png) no-repeat;
+	
+}.Mymessage-icon3{
+	background: url(../Images/information.png) no-repeat;
+	
+}.Mymessage-icon4{
+	background: url(../Images/por.png) no-repeat;
+
+}.Mymessage-icon5{
+	background: url(../Images/grade.png) no-repeat;
+}.Mymessage-icon6{
+	background: url(../Images/location.png) no-repeat;
+}.Mymessage-icon7{
+	background: url(../Images/qiu.png) no-repeat;
+}
+/*覆盖 bootstart*/
+.glyphicon{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+.marginB{
+	margin-bottom: 15px;
+}
+.glyphicon-menu-right:before{
+	content: "";
+	width: 15px;
+	height:15px;
+	background: url(../Images/more.png) no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	display: block;
+}

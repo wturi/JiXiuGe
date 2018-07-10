@@ -1,0 +1,479 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAboutRepair.cshtml";
+}
+@section styles{
+    <link href="~/Styles/rest.css" rel="stylesheet" />
+    <link href="~/Styles/Repair.css" rel="stylesheet" />
+    <link href="~/Styles/ceshi.css" rel="stylesheet" />
+    <link href="~/Styles/footer.css" rel="stylesheet" />
+    <style type="text/css">
+        #imgdiv > div {
+            display: inline-block;
+            position: relative;
+        }
+
+            #imgdiv > div > .imgdiv_cancle {
+                position: absolute;
+                top: -15%;
+                width: 35%;
+                right: -10%;
+                z-index: 1;
+            }
+
+        .fadein-box {
+            z-index: 3;
+            max-height: 100%;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+    </style>
+}
+
+<div class="keep">
+    <div class="keep-in">
+        <div class="keep-content-t clearfix ">
+            @* 新添加 姓名 手机号 模块 *@
+            @if (ViewBag.Recordid.RecordId != 0)
+            {
+                <div class="new-page">
+                    <div class="page-cire">
+                        <div class="locian">
+                            @*<span><img src="~/Images/location.png" /></span>*@
+                        </div>
+                        @if (ViewBag.Village != null)
+                        {
+                            <input type="hidden" value="@ViewBag.Village.VillageId" id="housing" />
+                            <input class="housing" readonly="readonly" value="@ViewBag.Village.Name" />
+                        }
+                        else
+                        {
+                            <input type="hidden" value="" id="housing" />
+                            <input class="housing" readonly="readonly" placeholder="请选择报修单位" />
+                        }
+                    </div>
+                    <div class="page-tel"><input type="text" placeholder="请输入手机号" id="phone" value="@ViewBag.Recordid.PhoneNumber" /></div>
+                    <div class="page-name"><input type="text" placeholder="请输入姓名" id="name" value="@ViewBag.Recordid.Name" /></div>
+                </div>
+            }
+            else
+            {
+                <div class="new-page">
+                    <div class="page-cire">
+                        <div class="locian">
+                            @*<span><img src="~/Images/location.png" /></span>*@
+                        </div>
+                        @if (ViewBag.Village != null)
+                        {
+                            <input type="hidden" value="@ViewBag.Village.VillageId" id="housing" />
+                            <input class="housing" readonly="readonly" value="@ViewBag.Village.Name" />
+                        }
+                        else
+                        {
+                            <input type="hidden" value="" id="housing" />
+                            <input class="housing" readonly="readonly" placeholder="请选择报修单位" />
+                        }
+                    </div>
+
+                    <div class="page-tel">
+                        @if (ViewBag.Recordid.PhoneNumber != null)
+                        {
+                            <input type="text" placeholder="请输入手机号" id="phone" value="@ViewBag.Recordid.PhoneNumber" />
+                        }
+                        else
+                        {
+                            <input type="text" placeholder="请输入手机号" id="phone" />
+                        }
+                    </div>
+                    <div class="page-name">
+                        @if (ViewBag.Recordid.Name != null)
+                        {
+                            <input type="text" placeholder="请输入姓名" id="name" value="@ViewBag.Recordid.Name" />
+                        }
+                        else
+                        {
+                            <input type="text" placeholder="请输入姓名" id="name" />
+                        }
+
+                    </div>
+                </div>
+            }
+            <p style="padding:10px 15px 0px; color:#333;font-size:13px; font-weight:bold;">快捷选择</p>
+            <div class="keep-textarea">
+                <ul class="service" id="RepairFinishTypeid">
+                    @if (ViewBag.OveruseRepair != null)
+                    {
+                        foreach (KeyValuePair<string, List<string>> dd in ViewBag.OveruseRepair)
+                        {
+
+                            foreach (string str in dd.Value as List<string>)
+                            {
+                                <li>@str</li>
+                            }
+                        }
+                    }
+                    <li id="orqt">其他</li>
+                </ul>
+            </div>
+
+            <div class="keep-textarea" id="keepnei" style="display:none;">
+                <textarea placeholder="请描述您要报修的内容..." id="keep"></textarea>
+                @*<em class="br"></em>*@
+            </div>
+
+            <div class="col-xs-12 operate " id="imgdiv">
+                <img src="~/Images/tianjia2x.png" class="addimages" id="add-phoneimg1" />
+            </div>
+            <p style="padding-left:15px; padding-bottom:10px; color:red;" id="imgtext"></p>
+            <div class="col-xs-12 operate " id="imgdiv">
+                <input class="commit pull-right" type="button" id="btn" onclick="btn()" value="提交" style="margin-bottom:20px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* 地址选择 HTML *@
+<div class="fadein-box">
+    <div class="box-in">
+        <ul id="locian">
+            @if (ViewBag.RepairAdress != null)
+            {
+                foreach (DoShineMP.Models.Village aa in ViewBag.RepairAdress as List<DoShineMP.Models.Village>)
+                {
+                    <li class="fadeInUp animated" Villageid="@aa.VillageId"><p>@aa.Name</p></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+<input type="hidden" value="@ViewBag.openid" id="openid" />
+<input type="hidden" value="" id="serviceid" />
+<input type="hidden" value="@ViewBag.HasUnFinishedRepair" id="HasUnFinishedRepair" />
+<input type="hidden" value="@ViewBag.Recordid.RecordId" id="RecordId" />
+<input type="hidden" value="" id="ortext" />
+
+@section scripts{
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="~/Scripts/Commons.js"></script>
+    <script type="text/javascript">
+
+        $('.housing').click(function () {
+            $('.fadein-box').show();
+        })
+        $('.fadein-box').click(function () {
+            $('.fadein-box').hide();
+        })
+        $('.fadein-box li').click(function () {
+            $('.housing').val($(this).text());
+            $('#housing').val($(this).attr('Villageid'));
+            $('.fadein-box ').hide()
+        })
+
+    </script>
+    <script type="text/javascript">
+        var token;
+        var imglength = 9;
+        var maximglength = 9;
+        var images = {
+            localId: [],
+            serverId: []
+        };
+        $(function () {
+
+            $.post('@Url.Action("WechatJsConfigJson","PhoneWeb")', { url: window.location.href }, function (data, status) {
+                var debug = data.debug;
+                var appId = data.appId;
+                var timestamp = data.timestamp;
+                var nonceStr = data.nonceStr;
+                var signature = data.signature
+
+                wx.config({
+                    debug: debug,
+                    appId: appId,
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: [
+                        'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'hideMenuItems',
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'showAllNonBaseMenuItem',
+                    'translateVoice',
+                    'startRecord',
+                    'stopRecord',
+                    'onRecordEnd',
+                    'playVoice',
+                    'pauseVoice',
+                    'stopVoice',
+                    'uploadVoice',
+                    'downloadVoice',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'getNetworkType',
+                    'openLocation',
+                    'getLocation',
+                    'hideOptionMenu',
+                    'showOptionMenu',
+                    'closeWindow',
+                    'scanQRCode',
+                    'chooseWXPay',
+                    'openProductSpecificView',
+                    'addCard',
+                    'chooseCard',
+                    'openCard'
+                    ]
+                });
+            })
+        })
+
+        // 微信
+        wx.error(function (res) {
+            console.log('验证失败');
+        });
+
+        wx.ready(function () {
+            // 5 图片接口
+            // 5.1 拍照、本地选图
+            var images = {
+                localId: [],
+                serverId: []
+            };
+            document.querySelector('#add-phoneimg1').onclick = function () {
+                wx.chooseImage({
+                    count: imglength,
+                    success: function (res) {
+                        images.localId = res.localIds;
+                        if (images.localId.length == 0) {
+                            //alert('请先使用 chooseImage 接口选择图片');
+                            return;
+                        }
+
+
+                        var i = 0, length = 9;
+                        images.serverId = [];
+                        var str = '';
+                        var htmlstr = '';
+                        function upload() {
+                            wx.uploadImage({
+                                localId: images.localId[i],
+                                success: function (res) {
+                                    //alert('已上传：' + i + '张');
+                                    images.serverId.push(res.serverId);
+                                    if (i < length) {
+                                        if (i == 0 && imglength == length) {
+                                            $("#serviceid").val($("#serviceid").val() + res.serverId);
+                                        } else {
+                                            $("#serviceid").val($("#serviceid").val() + ',' + res.serverId);
+                                        }
+                                        //alert(imglength);
+                                        //htmlstr = ' <img src="' + images.localId[i] + '" class="addimages imagesdelete imgyulan" serverId="' + res.serverId + '"  />';
+                                        htmlstr = '<div src="' + images.localId[i] + '"><img src="' + images.localId[i] + '" class="addimages imagesdelete imgyulan" serverId="' + res.serverId + '" /><img src="../../doshinemp/Images/40x40/cancle.png" class="imgdiv_cancle" /></div>';
+                                        i++;
+                                        $('#imgdiv').prepend(htmlstr);
+                                        imglength--;
+                                        if (imglength == 0) {
+                                            $('#add-phoneimg1').hide();
+                                            return;
+                                        }
+                                        //alert($("#serviceid").val());
+                                        upload();
+                                    }
+                                },
+                                fail: function (res) {
+                                    //alert(JSON.stringify(res));
+                                }
+                            });
+                        }
+                        upload();
+
+                    }
+                });
+            };
+        });
+
+
+        document.getElementById('btn').addEventListener('touchstart', btnstart)
+        document.getElementById('btn').addEventListener('touchend', btnend)
+        function btnstart() {
+            $('#btn').css({ 'background-color': '#11c354' });
+        }
+        function btnend() {
+            $('#btn').css({ 'background-color': '#4ca329', 'border': '1px solid #4ca329' });
+        }
+        function btn() {
+
+            var HasUnFinishedRepair = $('#HasUnFinishedRepair').val();
+            if (HasUnFinishedRepair != '0') {
+                $('#imgtext').text('有未完成的报修！');
+                return false;
+            }
+
+            var serviceid = $('#serviceid').val();
+            var keeptext = $('#keep').val();
+            var code = $('#openid').val();
+            var housing = $('#housing').val();
+            var name = $('#name').val();
+            var phone = $('#phone').val();
+
+            var regu = /^[1][0-9]{10}$/;
+            var re = new RegExp(regu);
+
+            var ortext = $('#ortext').val().replace(/--/g, '\r\n') + keeptext; //快捷语言和其他合并
+            console.log(ortext);
+
+            if (housing == '' || housing == null) {
+                $('#imgtext').text('请选择小区！');
+                $('#btn').attr('disabled', false);
+            } else if (ortext == '' || ortext == null) {
+                $('#imgtext').text('报修内容不得为空！');
+                $('#btn').attr('disabled', false);
+                return false;
+            } else if (name == '' || name == null || phone == '' || phone == null) {
+                $('#imgtext').text('姓名、手机号不得为空！');
+                $('#btn').attr('disabled', false);
+                return false;
+            } else if (!re.test(phone)) {
+                $('#imgtext').text('请输入正确手机号！');
+                $('#btn').attr('disabled', false);
+                return false;
+            }
+
+            $('#btn').css('border-color', '#ccc');
+            $('#btn').css('color', '#ccc');
+            $('#btn').attr('disabled', true);
+
+
+            serviceid = serviceid == null ? '#' : serviceid;
+            //alert(serviceid)
+            var RecordId = $('#RecordId').val();
+            //alert(RecordId);
+
+            //console.log(ortext);
+            //$('#btn').attr('disabled', false);
+
+
+            //alert(housing)
+            $.post('@Url.Action("RepairJson","PhoneWeb")', { code: code, content: ortext, mediaid: serviceid, address: "", phone: phone, villageid: housing, name: name, recordid: RecordId }, function (data, status) {
+                if (status == 'success') {
+                    if (data.msg != 'N') {
+                        $('#keep').val('');
+                        window.location.replace('@Url.Action("RepairDetails", "PhoneWeb")?repairid=' + data[0].RepairId);
+
+
+                        //$('#messagenew').html(str);
+                        //document.getElementById('btn').style.borderColor = '#4ca329';
+                        //document.getElementById('btn').style.color = '#4ca329';
+                        //$('#serviceid').val('');
+                        //$('#btn').attr('disabled', false);
+                        //$('.imagesdelete').remove();
+                        //$('#add-phoneimg1').show();
+                        //$('#name').val('');
+                        //$('#phone').val('');
+                    }
+                }
+            })
+        };
+
+        function repairid(e) {
+            var repairid = $(this).attr('tagid');
+            var href = '@Url.Action("RepairDetails", "PhoneWeb")?repairid=' + repairid;
+            window.location.href = '@Url.Action("RepairDetails", "PhoneWeb")?repairid=' + e;
+        };
+
+        $('#MyRepair').click(function () {
+            window.location.href = '@Url.Action("RepairHistory", "PhoneWeb")?IndexLi1=0&openid=' + $('#openid').val();
+        });
+
+
+        document.getElementsByClassName('commit')[0].ontouchustart = function () {
+            this.style.backgroundColor = '#4ca329';
+            this.style.color = '#fff';
+        }
+
+
+        // 处理状态js
+        $('.service li').click(function () {
+            if ($(this).hasClass('current')) {
+                console.log('has')
+                $(this).removeClass('current');
+                if ($('.service').find('.current').length == 0) {
+                    $('#keepnei').slideUp();
+                }
+                if ($(this).text() == '其他') {
+                    return false;
+                }
+                //console.log($('#ortext').val());
+                var str = $('#ortext').val().replace($(this).text() + '--', '')
+                $('#ortext').val(str);
+                //console.log(str)
+                console.log($('#ortext').val());
+            } else {
+                console.log('nohas')
+                $(this).addClass('current');
+                $('#keepnei').slideDown();
+                if ($(this).text() == '其他') {
+                    return false;
+                }
+                $('#ortext').val($(this).text() + '--' + $('#ortext').val());
+            }
+        })
+
+        //删除上传图片
+        $(document).on('click', '.imgdiv_cancle', function () {
+            var serveridvalue = $('#serviceid').val();
+            var serverId = $(this).prev().attr('serverId');
+            if ($('#imgdiv').find('div').length == maximglength) {
+                $(this).parent().remove();
+                $('#add-phoneimg1').show();
+            } else {
+                $(this).parent().remove();
+            }
+            if (serveridvalue == serverId) {
+                serveridvalue = '';
+            } else if (!serveridvalue.indexOf(serverId)) {
+                serveridvalue = serveridvalue.replace(serverId + ',', '');
+            } else if (serveridvalue.length > serverId.length) {
+                serveridvalue = serveridvalue.replace(',' + serverId, '');
+            } else {
+                serveridvalue = serveridvalue.replace(serverId, '');
+            }
+            $('#serviceid').val(serveridvalue)
+            imglength++;
+        })
+
+
+        //微信多图轮播
+        $(document).on('click', '.imgyulan', function () {
+
+            var imglist = $(this).parent().parent().find('div');
+            var imgurl = $(this).attr('src');
+            var imgstr = '';
+            //alert(imglist)
+            for (var i = 0; i < imglist.length; i++) {
+                if (imgstr.length == 0) {
+                    //console.log(imglist[i]);
+                    imgstr += imglist[i].attributes['src'].value;
+                } else {
+                    imgstr += ',' + imglist[i].attributes['src'].value;
+                }
+            }
+            wx.previewImage({
+                current: imgurl,
+                urls: imgstr.split(',')
+            });
+        })
+
+
+    </script>
+}

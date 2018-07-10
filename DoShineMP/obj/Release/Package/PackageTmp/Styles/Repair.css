@@ -1,0 +1,677 @@
+/* 
+* @Author: 晴
+* @Date:   2015-12-21 15:16:44
+* @Last Modified by:   晴
+* @Last Modified time: 2015-12-31 17:41:34
+*/
+body {
+    font-family: 'Microsoft YaHei';
+    background-color: #ececec;
+}
+/*.keep-content-t{
+	padding-top:40px;
+
+}*/
+.keep-content-t {
+    /*box-shadow: 0px 5px 5px #ccc;
+    -webkit-box-shadow: 0px 5px 5px #ccc;*/
+    background: white;
+}
+
+.keep-title {
+    font-size: 30px;
+    color: block;
+    width: 100%;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.keep-textarea {
+    padding: 10px 15px 0 15px;
+    background: white;
+}
+
+    .keep-textarea textarea {
+        width: 100%;
+        height: 80px;
+        background-color: white;
+        border-radius: 5px;
+        border-color: #bdbdbd;
+        resize: none;
+        border: 0;
+        font-size: 14px;
+    }
+
+.operate {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*display: table;*/
+    position: relative;
+}
+
+    .operate .commit {
+        width: 100%;
+        border-radius: 5px;
+        outline: none;
+        background-color: #4ca329;
+        color: white;
+    }
+
+    .operate input {
+        background-color: white;
+    }
+
+.br {
+    display: block;
+    border-top: 1px solid #ddd;
+}
+
+.commit {
+    display: block;
+    border: 1px solid #4ca329;
+    font-size: 16px;
+    text-align: center;
+    line-height: 38px;
+    /*display: table-cell;*/
+    color: #4ca329;
+}
+
+.operate .countermand {
+    border: 1px solid #bdbdbd;
+    background: white;
+}
+
+.go-photo {
+    overflow: hidden;
+    padding: 10px 10px 10px 20px;
+}
+
+.add-photo {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 1px dashed #ccc;
+    outline: none;
+}
+
+#add-phoneimg {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 1px dashed #ccc;
+    outline: none;
+}
+
+.addimages {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border: 1px dashed #ccc;
+    outline: none;
+}
+/*new keep css*/
+.keep-content-b {
+    background-color: #ececec;
+    padding: 6px 6px;
+}
+
+.new-title {
+    padding: 10px 0px;
+    background: white;
+    margin-bottom: 0;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px 0px #AFAFAF;
+}
+
+    .new-title ins {
+        display: block;
+        border-top: 1px solid #ddd;
+        transform: scale(1,0.5);
+        -webkit-transform: scale(1,0.5);
+    }
+
+    .new-title span {
+        display: block;
+        padding: 0 5px 0;
+        font-size: 15px;
+        color: #a8a8a8;
+    }
+
+.logo {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+}
+
+.content-title-t {
+    overflow: hidden;
+    min-height: 80px;
+}
+
+.new-keep {
+    background-color: #ececec;
+}
+
+    .new-keep ul {
+        /*padding:6px 6px;*/
+    }
+
+        .new-keep ul li {
+            padding: 15px 12px 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            transition: all 0.3s linear 0s;
+            -webkit-transition: all 0.3s linear 0s;
+            box-shadow: 2px 2px 5px 0px #AFAFAF;
+            margin-bottom: 10px;
+        }
+            /*.new-keep ul li:hover{
+        box-shadow: 5px 5px 5px 0px lightgray;
+         position:relative;
+         top:10px;
+    }*/
+            .new-keep ul li:nth-child(1) {
+                border-top: 0px;
+            }
+
+.content-title-t .w8 {
+    width: 68%;
+    /*padding-top:10px;*/
+    /*padding-left: 20px;*/
+}
+
+.w10 {
+    width: 100%;
+    max-height: 55px;
+}
+
+.content-title-b {
+    overflow: hidden;
+}
+
+    .content-title-b p {
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+.marginB {
+    margin-bottom: 20px;
+    background: white;
+}
+
+.panel {
+    border: 0;
+}
+
+.w8 p {
+    /*font-weight: bold ;*/
+}
+
+.w8 b {
+    font-weight: normal;
+}
+
+.w2 {
+    /*width: 30%;*/
+}
+
+    .w2 .img {
+        width: 85px;
+        height: 65px;
+        background-color: #ccc;
+    }
+
+        .w2 .img img {
+            width: 100%;
+            height: 100%;
+        }
+
+.time {
+    display: block;
+    color: #a8a8a8;
+}
+
+@media (min-width:375px) and (max-width:410px) {
+    .content-title-t .w8 {
+        width: 72%;
+    }
+}
+
+@media screen and (min-width:411px) {
+    .content-title-t .w8 {
+        width: 74%;
+    }
+}
+
+.w8 .wr-content,
+.w10 .wr-content {
+    width: 100%;
+    /*min-width: 55px;*/
+    max-height: 45px;
+    /*text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;*/
+    overflow: hidden;
+    color: #626262;
+    margin-bottom: 0;
+    /*white-space: nowrap;*/
+    overflow: hidden;
+}
+/*.commit:hover{
+	color:#f06343;
+	border-color:  #f06343;
+}*/
+.content-title-b .check {
+    text-decoration: none;
+}
+
+.content-title-b {
+    padding-top: 5px;
+}
+    /*.content-title-b ins:before{
+	content: "";
+	width:16px;
+	height:16px;
+	float: left;
+	margin-top:2px;
+	vertical-align: middle;
+}*/
+    .content-title-b .check {
+        height: 16px;
+        line-height: 16px;
+        padding-left: 20px;
+    }
+
+    .content-title-b .check1 {
+        background: url(../Images/submitIcon2x.png) no-repeat left center;
+        background-size: contain;
+        -webkit-background-size: contain;
+        color: #ffc600;
+    }
+
+    .content-title-b .check2 {
+        background: url(../Images/accept2x.png) no-repeat;
+        background-size: contain;
+        -webkit-background-size: contain;
+        color: #ffc600;
+    }
+
+    .content-title-b .check3 {
+        background: url(../Images/daiqueren2x.png) no-repeat;
+        background-size: contain;
+        -webkit-background-size: contain;
+        color: #1ec462;
+    }
+
+    .content-title-b .check4 {
+        background: url(../Images/complete2x.png) no-repeat 0 0px;
+        background-size: contain;
+        -webkit-background-size: contain;
+        color: #1ec462;
+    }
+
+.operate span.current {
+    color: #f06343;
+    border-color: #f06343;
+}
+
+.site-box {
+    padding: 0px 15px;
+}
+
+    .site-box .site {
+        width: 100%;
+        padding: 13px 0;
+        font-size: 16px;
+        border: 0;
+        outline: none;
+    }
+
+    .site-box span {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        transform: scale(1,0.5);
+        -webkit-transform: scale(1,0.5);
+    }
+
+.time-l {
+    margin-right: 10px;
+}
+
+.housing-l:after
+/*@* 新添加 模块 css *@*/
+.housing-box {
+    background-color: white;
+    ;
+    height: 40px;
+    overflow: hodden;
+    position: relative;
+    padding: 0 15px;
+}
+
+.housing-r {
+    width: 50px;
+    height: 40px;
+    float: right;
+    margin-left: -100%;
+    background-color: white;
+}
+
+.housing-l {
+    width: 100%;
+    padding-right: 55px;
+    float: left;
+    position: relative;
+}
+
+    .housing-l .housing {
+        width: 100%;
+        height: 40px;
+        border: 0;
+        outline: none;
+        padding-left: 15px;
+    }
+
+    .housing-l .housing-ul li {
+        height: 40px;
+        line-height: 40px;
+        background-color: white;
+        padding-left: 15px;
+    }
+
+.cire {
+    width: 35px;
+    height: 35px;
+    display: block;
+    background: url(../Images/locationcire.png) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    margin-top: 3px;
+    margin-left: 5px;
+}
+
+.housing-l:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 65px;
+    top: 10px;
+    background: url(../Images/jiantou.png) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+button[disabled], html input[disabled] {
+    background-color: white;
+}
+
+.housing-ul {
+    height: 0;
+    overflow: hidden;
+    transition: height .6s linear 0s;
+    -webkit-transition: height .6s linear 0s;
+}
+
+.new-page {
+    padding: 5px 15px;
+    overflow: hidden;
+}
+
+    .new-page .page-name,
+    .new-page .page-tel,
+    .new-page .page-cire {
+        height: 45px;
+        border-bottom: 1px solid #ddd;
+        padding-left: 30px;
+        position: relative;
+    }
+
+        .new-page .page-name:before {
+            content: '';
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            background: url(../Images/user2x.png) no-repeat left center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            .new-page .page-cire:before;
+        }
+
+        .new-page .page-tel:before {
+            content: '';
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            background: url(../Images/phone2x.png) no-repeat left center;
+            background-size: cover;
+            -webkit-background-size: cover;
+        }
+
+        .new-page .page-cire:before {
+            content: '';
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            left: 0px;
+            top: 10px;
+            background: url(../Images/locationg.png) no-repeat left center;
+            background-size: cover;
+            -webkit-background-size: cover;
+        }
+
+        .new-page .page-cire .locian {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 45px;
+            height: 45px;
+        }
+
+    .new-page .page-cire {
+        padding-left: 25px;
+    }
+
+        .new-page .page-cire span {
+            width: 25px;
+            height: 25px;
+            margin-top: 8px;
+            margin-left: 15px;
+            display: block;
+        }
+
+            .new-page .page-cire span img {
+                width: 100%;
+                height: 100%;
+            }
+
+        .new-page .page-cire select {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+    .new-page input {
+        width: 100%;
+        height: 44px;
+        border: 0;
+    }
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding-right: 14px;
+}
+
+    select::-ms-expand {
+        display: none;
+    }
+
+.my-arranty {
+    padding: 15px 15px 10px 15px;
+    font-size: 15px;
+    background-color: white;
+    border-bottom: 5px solid #ececec;
+    position: relative;
+}
+
+    .my-arranty span {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: url(../Images/jiantou.png) no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+    }
+
+
+.content-see {
+    width: 70%;
+    locian color: #898989;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+.wr-content {
+    height: 55px;
+    text-overflow: ellipsis;
+}
+/*.tips-title{
+    color:#898989;
+	vertical-align:bottom;
+    padding-left:10px;
+}
+.operate  img{
+    float:left;
+}*/
+/*textarea:disabled, input:not([type]):disabled, input[type="color" i]:disabled, input[type="date" i]:disabled, input[type="datetime" i]:disabled, input[type="datetime-local" i]:disabled, input[type="email" i]:disabled, input[type="month" i]:disabled, input[type="password" i]:disabled, input[type="number" i]:disabled, input[type="search" i]:disabled, input[type="tel" i]:disabled, input[type="text" i]:disabled, input[type="time" i]:disabled, input[type="url" i]:disabled, input[type="week" i]:disabled {
+        background-color:#fff !important;
+}*/
+.content-title-b .check5 {
+    background: url(../Images/quxiao.png) no-repeat 0 0px;
+    background-size: contain;
+    -webkit-background-size: contain;
+    color: #f1514e;
+}
+
+.demonstrate {
+    width: 100%;
+    height: 140px;
+    position: relative;
+}
+
+    .demonstrate img {
+        width: 100%;
+        height: 100%;
+    }
+
+.page-name::after, .page-tel::after {
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url(../Images/bj.png) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    display: block;
+}
+/*  fadein -box css*/
+.my-arranty {
+    overflow: hidden;
+}
+
+    .my-arranty a {
+        float: left;
+        width: 46%;
+        height: 100%;
+        text-align: center;
+        color: #333;
+        font-size: 17px;
+    }
+
+        .my-arranty a:nth-child(2) {
+            float: right;
+        }
+
+        .my-arranty a img {
+            width: 14%;
+            margin-right: 10px;
+            margin-left: -10px;
+            padding-bottom: 5px;
+        }
+
+@media screen and (max-width:320px) {
+    .my-arranty a {
+        background-position: 10% 0%;
+    }
+}
+
+.demonstrate p {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 40px;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+
+.demonstrate .locian {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+    .demonstrate .locian::before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 13px;
+        left: 0px;
+        background: url('../Images/dizhi.png') no-repeat;
+        background-size: cover;
+        -webkit- background-size:cover;
+    }
+
+
+.service {
+    overflow: hidden;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+    .service li {
+        float: left;
+        padding: 8px 12px;
+        background-color: #DBF3DC;
+        color: #16B452;
+        border-radius: 6px;
+        margin-right: 8px;
+        margin-bottom: 7px;
+    }
+
+        .service li.current {
+            background-color: #1ec462;
+            color: white;
+        }

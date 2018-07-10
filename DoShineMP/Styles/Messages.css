@@ -1,0 +1,291 @@
+﻿body {
+    font-family: 'Microsoft YaHei';
+}
+
+.jumbotron {
+    background: none;
+}
+
+#bk {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background:#f0f0f0;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+}
+.jumbotron{
+    padding-top:20px;
+}
+#foottext {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index:9999;
+}
+
+.media .media-object {
+    width: 50px;
+}
+
+.media .media-heading {
+    font-weight: 400;
+}
+
+.medialeft .media-body > div {
+    max-width: 90%;
+    display: inline-block;
+    padding: 2vw;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color:#333;
+}
+
+.mediaright .media-body > div {
+    max-width: 90%;
+    display: inline-block;
+    padding: 2vw;
+    background-color: #7cd47c;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color:#333;
+}
+
+#alertmess > span {
+    background-color: white;
+    display: inline-block;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+}
+
+#foottext .form-control {
+    height: 4em;
+    padding-left: 2%;
+}
+
+#foottext .btn-default {
+    height: 4em;
+}
+/*  修改*/
+.media-left, .media-right, .media-body {
+    /*vertical-align: middle;*/
+}
+
+/* left */
+.medialeft .mediacontent{
+    position:relative;
+}
+.medialeft .mediacontent:before{
+    content:'';
+    position:absolute;
+    left:-13px;
+    top:10px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid white;
+    border-left: 18px solid transparent;
+    z-index:10;
+    /*transform:rotate(-40deg);*/
+    /*-webkit-transform:rotate(-40deg);*/
+
+}
+.media-left, .media > .pull-left{
+    padding-right:20px;
+}
+.media, .media-body{
+         overflow: inherit; 
+}
+
+/* right*/
+
+.mediaright .mediacontent{
+    position:relative;
+}
+.mediaright .media-body,.medialeft .media-body{
+    padding-top: 10px;   
+}
+.mediaright .mediacontent:before{
+    content:'';
+    position:absolute;
+    right:-13px;
+    top:10px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid #7cd47c;
+    border-right: 18px solid transparent;
+    z-index:9999;
+    /*transform:rotate(-40deg);
+    -webkit-transform:rotate(-40deg);*/
+
+}
+.media-right, .media > .pull-right {
+    padding-left: 20px;
+}
+
+
+.bg-input{
+    background-color:#dedede;
+    border:1px solid #d0d0d0;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.sendInput{
+    width:75%;
+    height:40px;
+    padding-left:40px;
+    border-radius:5px;
+    border:0;
+    display:inline-block;
+    background-color:#fff;
+    vertical-align: top;
+    line-height:40px;
+    overflow-x:auto;
+}
+.sendBtn{
+    height:40px;
+    border:0;
+    padding:10px 15px;
+    background-color:#5ab15a;
+    color:white;
+    font-size:14px;
+    border-radius:5px;
+}
+.sendSpan{
+    display:inline-block;
+    width:23%;
+}
+@media screen and (min-width:380px){
+ .sendBtn{
+    padding:10px 20px;
+   
+    }
+}
+
+/* face */
+.Main {
+	height: auto;
+	margin: 0 auto;
+    overflow:hidden;
+}
+.Input_Box {
+	width: 495px;
+	height: 160px;
+	border: 1px solid #ccc;
+	transition: border linear .2s, box-shadow linear .5s;
+	-moz-transition: border linear .2s, -moz-box-shadow linear .5s;
+	-webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #fff;
+	overflow: hidden;
+	position: absolute;
+	-moz-box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	box-shadow: 0 0 5px #ccc;
+}
+.Input_Box>textarea {
+	width: 485px;
+	height: 111px;
+	padding: 5px;
+	outline: none;
+	border: 0px solid #fff;
+	resize: none;
+	font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.Input_Foot {
+	width: 100%;
+	height: 35px;
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+	position: absolute;
+}
+.imgBtn {
+    /*background-origin:content-box;
+    -webkit-background-origin:padding-box;*/
+    position:absolute;
+    /*top: 22px;*/
+    /*left: 18px;*/
+    /*padding-top:22px;
+    padding-left:18px;*/
+	background-image: url('../../doshinemp/Images/40x40/smile.png') ;
+    background-size:70%;
+	background-repeat: no-repeat;
+	/*background-position: 0 -13px;*/
+	height: 40px;
+	width: 40px;
+	cursor: pointer;
+    margin-top:6px;
+    margin-left:4px;
+}
+.imgBtn:active {
+	margin-top: 9px;
+}
+/*.imgBtn:hover {
+	background-position: 0 -40px
+}*/
+.postBtn {
+	float: right;
+	font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+	color: #808080;
+	padding: 9px 20px 7px 20px;
+	border-left: 1px solid #ccc;
+	cursor: pointer;
+	-moz-border-radius: 0 0 5px 0;
+	-webkit-border-radius: 0 0 5px 0;
+	border-radius: 0 0 5px 0;
+}
+.postBtn:hover {
+	color: #333;
+	background-color: #efefef;
+}
+.postBtn:active {
+	padding: 10px 20px 6px 20px;
+}
+.faceDiv {
+	border-top: 1px solid #ccc;
+	background-color: #dedede;
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+    bottom:0px;
+    overflow:hidden;
+}
+.faceDiv>img {
+	border: 1px solid #ccc;
+	float: left;
+	position: relative;
+	width: 10%;
+	padding: 3px 3px 3px 3px;
+	cursor: pointer;
+}
+.faceDiv>img:hover {
+	background-color: #efefef;
+}
+    .faceDiv > img:active {
+    }
+.Main,.Demo,.Input_Box,.faceDiv,.Input_Foot{
+    width:100%;
+}
+.Input_Foot .Input_text{
+    width:100%;
+}
+.Demo{
+    position:relative;
+}
+.input-in{
+    padding: 10px 0px 10px 10px;
+    position:relative;
+}

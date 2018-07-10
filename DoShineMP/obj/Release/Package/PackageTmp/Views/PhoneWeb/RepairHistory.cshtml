@@ -1,0 +1,409 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link href="~/Styles/rest.css" rel="stylesheet" />
+    <link href="~/Styles/history.css" rel="stylesheet" />
+    <style type="text/css">
+        .imgnone li {
+            box-shadow: none;
+            border: none;
+        }
+    </style>
+}
+<div id="content">
+    <div id="tabBox1" class="tabBox">
+        <div class="hd">
+            <ul>
+                <li><a href="javascript:void(0)">进行中</a></li>
+                <li><a href="javascript:void(0)">已完成</a></li>
+                <li><a href="javascript:void(0)">已取消</a></li>
+            </ul>
+        </div>
+        <div class="bd" id="tabBox1-bd">
+            <div>
+                @*进行中*@
+                @if (ViewBag.RepairListAll != null)
+            {
+                    <ul class="Padding">
+                        @foreach (DoShineMP.Models.Repair r in ViewBag.RepairListAll as List<DoShineMP.Models.Repair>)
+                    {
+                    <li id="@r.RepairId">
+                        <div class="content-title-t">
+                            @if (r.ImageFiles.Count == 0)
+                                {
+                                <div class="pull-left w8 repaidid" tagid="@r.RepairId" onclick="repairid(@r.RepairId)">
+                                    <p class="wr-content">@(r.Contenet.Replace("<br />",",").Length>25?r.Contenet.Replace("<br />",",").Substring(0,25)+"...": r.Contenet.Replace("<br />", ""))</p>
+                                    <div class="content-title-b">
+                                        @switch (r.Status)
+                                            {
+                                                case DoShineMP.Models.RepairStatus.Apply:
+                                            <ins class="check check1 pull-right">已提交</ins>;
+                                                    break;
+                                                case DoShineMP.Models.RepairStatus.Accept:
+                                            <ins class="check check2 pull-right">已受理</ins>;
+                                                    break;
+                                                case DoShineMP.Models.RepairStatus.FinishHandle:
+                                            <ins class="check check3 pull-right">待评价</ins>;
+                                                    break;
+                                }
+
+                                        <span class="time pull-left">@r.CreateDate.ToString().Split(' ')[0]</span>
+                                        @*@if (r.User.Name != null)
+                                            {
+                                                            <span class="time-l time pull-left">@r.User.Name</span>
+                                                        }*@
+                                    </div>
+                                </div>
+                                <div class="pull-right w2">
+                                    <div class="img">
+                                        <img src="http://115.159.71.54/DoShineMP/Images/baox.jpg" class="imgyulan" />
+                                    </div>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="pull-left w8 repaidid" tagid="@r.RepairId" onclick="repairid(@r.RepairId)">
+                                    <p class="wr-content">@(r.Contenet.Replace("<br />",",").Length>25?r.Contenet.Replace("<br />",",").Substring(0,25)+"...": r.Contenet.Replace("<br />", ""))</p>
+                                    <div class="content-title-b">
+                                        @switch (r.Status)
+                                {
+                                    case DoShineMP.Models.RepairStatus.Apply:
+                                <ins class="check check1 pull-right">已提交</ins>;
+                                        break;
+                                    case DoShineMP.Models.RepairStatus.Accept:
+                                <ins class="check check2 pull-right">已受理</ins>;
+                                        break;
+                                    case DoShineMP.Models.RepairStatus.FinishHandle:
+                                <ins class="check check3 pull-right">待评价</ins>;
+                                        break;
+                                }
+
+                                        <span class="time pull-left">@r.CreateDate.ToString().Split(' ')[0]</span>
+                                        @*@if (r.User.Name != null)
+                                                {
+                                            <span class="time-l time pull-left">@r.User.Name</span>
+                                            }*@
+                                    </div>
+                                </div>
+                                <div class="pull-right w2">
+                                    <div class="img">
+                                        <img src="@System.Configuration.ConfigurationManager.AppSettings["httpimgpath"]@r.ImageFiles[0].FileName" class="imgyulan" />
+                                    </div>
+                                </div>
+                                }
+                        </div>
+
+                    </li>
+                    }
+                    </ul>
+                }
+                else
+                {
+                    <ul class="Padding  imgnone">
+                        <li style="text-align:center;border:none;padding-top:40%; background-color:#ececec;"><img src="~/Images/weiyou.png" /></li>
+                    </ul>
+                }
+            </div>
+
+
+            @*已完成*@
+            <div>
+                @if (ViewBag.RepairList99 != null)
+                {
+                    <ul class="Padding">
+                        @foreach (DoShineMP.Models.Repair r in ViewBag.RepairList99 as List<DoShineMP.Models.Repair>)
+                                {
+                    <li id="@r.RepairId">
+                        <div class="content-title-t">
+                            @if (r.ImageFiles.Count == 0)
+                                {
+                                <div class="pull-left w8 repaidid" tagid="@r.RepairId" onclick="repairid(@r.RepairId)">
+                                    <p class="wr-content">@(r.Contenet.Replace("<br />",",").Length>25?r.Contenet.Replace("<br />",",").Substring(0,25)+"...": r.Contenet.Replace("<br />", ""))</p>
+                                    <div class="content-title-b">
+                                        <ins class="check check4 pull-right">已完成</ins>
+                                        <span class="time pull-left">@r.CreateDate.ToString().Split(' ')[0]</span>
+                                        @*@if (r.User.Name != null)
+                                            {
+                                                <span class="time-l time pull-right">@r.User.Name</span>
+                                            }*@
+                                    </div>
+                                </div>
+                                <div class="pull-right w2">
+                                    <div class="img">
+                                        <img src="http://115.159.71.54/DoShineMP/Images/baox.jpg" class="imgyulan" />
+                                    </div>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="pull-left w8 repaidid" tagid="@r.RepairId" onclick="repairid(@r.RepairId)">
+                                    <p class="wr-content">@(r.Contenet.Replace("<br />",",").Length>25?r.Contenet.Replace("<br />",",").Substring(0,25)+"...": r.Contenet.Replace("<br />", ""))</p>
+                                    <div class="content-title-b">
+                                        <ins class="check check4 pull-right">已完成</ins>
+                                        <span class="time pull-left">@r.CreateDate.ToString().Split(' ')[0]</span>
+                                        @*@if (r.User.Name != null)
+                                            {
+                                                <span class="time-l time pull-right">@r.User.Name</span>
+                                            }*@
+                                    </div>
+                                </div>
+                                <div class="pull-right w2">
+                                    <div class="img">
+                                        <img src="@System.Configuration.ConfigurationManager.AppSettings["httpimgpath"]@r.ImageFiles[0].FileName" class="imgyulan" />
+                                    </div>
+                                </div>
+                                }
+                        </div>
+
+                    </li>
+                    }
+                    </ul>
+                }
+                else
+                {
+                    <ul class="Padding  imgnone">
+                        <li style="text-align:center;border:none;padding-top:40%; background-color:#ececec;"><img src="~/Images/weiyou.png" /></li>
+                    </ul>
+                }
+            </div>
+            <div>
+                @*已取消*@
+                @if (ViewBag.RepairList_1 != null)
+                {
+                    <ul class="Padding">
+                        @foreach (DoShineMP.Models.Repair r in ViewBag.RepairList_1 as List<DoShineMP.Models.Repair>)
+                                {
+                    <li id="@r.RepairId">
+                        <div class="content-title-t">
+                            @if (r.ImageFiles.Count == 0)
+                                {
+                                <div class="pull-left w8 repaidid" tagid="@r.RepairId" onclick="repairid(@r.RepairId)">
+                                    <p class="wr-content">@(r.Contenet.Replace("<br />",",").Length>25?r.Contenet.Replace("<br />",",").Substring(0,25)+"...": r.Contenet.Replace("<br />", ""))</p>
+                                    <div class="content-title-b">
+                                        <ins class="check check5 pull-right">已取消</ins>
+                                        <span class="time pull-left">@r.CreateDate.ToString().Split(' ')[0]</span>
+                                        @*@if (r.User.Name != null)
+                                            {
+                                                <span class="time-l time pull-right">@r.User.Name</span>
+                                            }*@
+                                    </div>
+                                </div>
+                                <div class="pull-right w2">
+                                    <div class="img">
+                                        <img src="http://115.159.71.54/DoShineMP/Images/baox.jpg" class="imgyulan" />
+                                    </div>
+                                </div>
+                                }
+                                else
+                                {
+                                <div class="pull-left w8 repaidid" tagid="@r.RepairId" onclick="repairid(@r.RepairId)">
+                                    <p class="wr-content">@(r.Contenet.Replace("<br />",",").Length>25?r.Contenet.Replace("<br />",",").Substring(0,25)+"...": r.Contenet.Replace("<br />", ""))</p>
+                                    <div class="content-title-b">
+                                        <ins class="check check5 pull-right">已取消</ins>
+                                        <span class="time pull-left">@r.CreateDate.ToString().Split(' ')[0]</span>
+                                        @*@if (r.User.Name != null)
+                                            {
+                                                <span class="time-l time pull-right">@r.User.Name</span>
+                                                        }*@
+                                    </div>
+                                </div>
+                                <div class="pull-right w2">
+                                    <div class="img">
+                                        <img src="@System.Configuration.ConfigurationManager.AppSettings["httpimgpath"]@r.ImageFiles[0].FileName" class="imgyulan" />
+                                    </div>
+                                </div>
+                                }
+                        </div>
+                    </li>
+                    }
+                    </ul>
+                }
+                else
+                {
+                    <ul class="Padding  imgnone">
+                        <li style="text-align:center;border:none;padding-top:40%; background-color:#ececec;"><img src="~/Images/weiyou.png" /></li>
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/TouchSlide.1.1.js"></script>
+    <script type="text/javascript">
+        var tabnumber = 3;//分页tab数量
+        var IndexLi = 0;
+        var oldIn=0;
+        var token;
+
+        var images = {
+            localId: [],
+            serverId: []
+        };
+        $(function () {
+            //read();
+            $.post('@Url.Action("WechatJsConfigJson","PhoneWeb")', { url: window.location.href }, function (data, status) {
+                var debug = data.debug;
+                var appId = data.appId;
+                var timestamp = data.timestamp;
+                var nonceStr = data.nonceStr;
+                var signature = data.signature
+
+                wx.config({
+                    debug: debug,
+                    appId: appId,
+                    timestamp: timestamp,
+                    nonceStr: nonceStr,
+                    signature: signature,
+                    jsApiList: [
+                        'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'hideMenuItems',
+                    'showMenuItems',
+                    'hideAllNonBaseMenuItem',
+                    'showAllNonBaseMenuItem',
+                    'translateVoice',
+                    'startRecord',
+                    'stopRecord',
+                    'onRecordEnd',
+                    'playVoice',
+                    'pauseVoice',
+                    'stopVoice',
+                    'uploadVoice',
+                    'downloadVoice',
+                    'chooseImage',
+                    'previewImage',
+                    'uploadImage',
+                    'downloadImage',
+                    'getNetworkType',
+                    'openLocation',
+                    'getLocation',
+                    'hideOptionMenu',
+                    'showOptionMenu',
+                    'closeWindow',
+                    'scanQRCode',
+                    'chooseWXPay',
+                    'openProductSpecificView',
+                    'addCard',
+                    'chooseCard',
+                    'openCard'
+                    ]
+                });
+            })
+
+            var indexli = GetQueryString('IndexLi1');
+            IndexLi = (indexli == window.localStorage['IndexLi1']) ? indexli : window.localStorage['IndexLi1'];
+            TouchSlide({
+                slideCell: "#tabBox1",
+                endFun: function (i) { //高度自适应
+                    window.localStorage['IndexLi1'] = i;
+                    IndexLi = i;
+                    var bd = document.getElementById("tabBox1-bd");
+                    var bdheight = bd.children[i].children[0].offsetHeight;
+                    var wheight = window.screen.availHeight;
+                    //bd.parentNode.style.height = bdheight < wheight ? wheight : bdheight + "px";
+                    bd.parentNode.style.height = bdheight + 'px';
+                    if (i > 0) bd.parentNode.style.transition = "200ms";//添加动画效果
+                },
+                defaultIndex: IndexLi
+            });
+
+        })
+
+
+        // 微信
+        wx.error(function (res) {
+            console.log('验证失败');
+        });
+        wx.ready(function () {
+            // 5 图片接口
+            // 5.1 拍照、本地选图
+            var images = {
+                localId: [],
+                serverId: []
+            };
+            document.querySelector('#add-phoneimg').onclick = function () {
+                wx.chooseImage({
+                    success: function (res) {
+                        images.localId = res.localIds;
+
+                        if (images.localId.length == 0) {
+                            alert('请先使用 chooseImage 接口选择图片');
+                            return;
+                        }
+                        var i = 0, length = 0;
+                        images.serverId = [];
+                        function upload() {
+                            wx.uploadImage({
+                                localId: images.localId[i],
+                                success: function (res) {
+                                    i++;
+                                    //alert('已上传：' + i + '张');
+                                    images.serverId.push(res.serverId);
+                                    $("#serviceid").val(res.serverId);
+                                    //alert($("#serviceid").val())
+                                    document.getElementById('add-phoneimg').src = res.localId;
+                                },
+                                fail: function (res) {
+                                    alert(JSON.stringify(res));
+                                }
+                            });
+                        }
+                        upload();
+
+                    }
+                });
+            };
+
+        });
+
+        //微信多图轮播
+        $('.imgyulan').click(function () {
+            var imglist = $(this).parent().find('.imgyulan');
+            var imgurl = $(this).attr('src');
+            var imgstr = '';
+            for (var i = 0; i < imglist.length; i++) {
+                if (imgstr.length == 0) {
+                    //console.log(imglist[i]);
+                    imgstr += imglist[i].attributes['src'].value;
+                } else {
+                    imgstr += ',' + imglist[i].attributes['src'].value;
+                }
+            }
+            wx.previewImage({
+                current: imgurl,
+                urls: imgstr.split(',')
+            });
+        })
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+
+
+        function repairid(e) {
+            var repairid = $(this).attr('tagid');
+            window.history.replaceState(null, null, '?IndexLi1=' + window.localStorage['IndexLi1'] + '&openid=' + GetQueryString('openid'));
+            var href = '@Url.Action("RepairDetails", "PhoneWeb")?repairid=' + repairid;
+            window.location.href = '@Url.Action("RepairDetails", "PhoneWeb")?repairid=' + e;
+        }
+
+        function read() {
+            if (window.localStorage['Historyread'] != null) {
+                window.localStorage['Historyread'] == null;
+                window.location.reload();
+            }
+        }
+    </script>
+
+}

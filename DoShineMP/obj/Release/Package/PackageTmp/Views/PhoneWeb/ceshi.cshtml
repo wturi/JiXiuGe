@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "ceshi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<input type="text" value="@ViewBag.open.debug" />
+<input type="text" value="@ViewBag.open.appId" />
+<input type="text" value="@ViewBag.open.timestamp" />
+<input type="text" value="@ViewBag.open.nonceStr" />
+<input type="text" value="@ViewBag.open.signature" />*@
+@section styles{
+   
+}
+
+
+<div class="panel-group" id="accordion" role="tablist">
+    @if (ViewBag.OveruseRepair != null)
+    {
+        foreach (KeyValuePair<string,List<string>> dd in ViewBag.OveruseRepair)  
+        { 
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="collapseListGroupHeading1"  data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
+                    <h4 class="panel-title">
+                        <a class="" >
+                            @dd.Key;
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+                    <ul class="list-group">
+                        @foreach (string str in dd.Value as List<string>)
+                        {
+                            <li class="list-group-item">@str</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    }
+   
+</div>
+
+@section scripts{
+  
+}
